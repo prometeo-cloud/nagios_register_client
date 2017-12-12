@@ -45,7 +45,7 @@ How to invoke the role from a playbook:
   vars:
     nagios_server_hostname: '?'
     nagios_client_hostname: '?'
-    nagios
+    nagios_clientip_address: '?'
     task_type: '?'
    
 ```

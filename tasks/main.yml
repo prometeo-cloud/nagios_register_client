@@ -12,6 +12,13 @@
 
 - name: Unregister the Client {{ nagios_client_hostname }}
   file:
-	state: absent
-	path:/etc/nagios/conf.d/{{ nagios_client_hostname }}.cfg
+    state: absent
+    path: /etc/nagios/conf.d/{{ nagios_client_hostname }}.cfg
   when: task_type == "Unregister"
+
+- name: Start nagios service
+  service:
+    name: nagios
+    state: restarted
+    enabled: true
+  when: ansible_virtualization_type != "docker"
